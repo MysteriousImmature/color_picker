@@ -1,1 +1,0 @@
-# A Color Picker Tool
