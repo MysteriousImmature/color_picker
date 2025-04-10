@@ -8,11 +8,99 @@
 </head>
 <body>
     <div class="color-picker">
-        <h1>Color Picker</h1>
+        <h1>Color Picker Pro</h1>
         <input type="color" id="colorInput" value="#ff0000">
-        <p>Selected Color: <span id="colorCode">#ff0000</span></p>
+        
+        <div class="color-tools">
+            <button class="tool-btn" id="eyedropperBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 16.95a6.983 6.983 0 0 1-5 2.05 7.08 7.08 0 0 1-5-2.05l-4-4 .7-.7a1 1 0 0 1 1.4 0l1.9 1.9a1 1 0 0 0 1.4 0l5.3-5.3a1 1 0 0 0 0-1.4l-1.9-1.9a1 1 0 0 1 0-1.4l.7-.7 4 4a7.082 7.082 0 0 1 2.05 5c0 1.86-.73 3.73-2.05 5" />
+                </svg>
+                Eyedropper
+            </button>
+            <button class="tool-btn" id="randomBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 3h5v5"></path>
+                    <path d="M4 20L21 3"></path>
+                    <path d="M21 16v5h-5"></path>
+                    <path d="M15 15l6 6"></path>
+                    <path d="M4 4l5 5"></path>
+                </svg>
+                Random
+            </button>
+        </div>
+        
+        <div class="color-info">
+            <div class="color-formats">
+                <button class="format-btn active" data-format="hex">HEX</button>
+                <button class="format-btn" data-format="rgb">RGB</button>
+                <button class="format-btn" data-format="hsl">HSL</button>
+            </div>
+            <p id="colorCode">#ff0000</p>
+        </div>
+        
         <button id="copyBtn">Copy Color Code</button>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="history">History</div>
+            <div class="tab" data-tab="presets">Presets</div>
+            <div class="tab" data-tab="schemes">Schemes</div>
+            <div class="tab" data-tab="gradient">Gradient</div>
+        </div>
+        
+        <div class="tab-content active" data-content="history">
+            <div class="color-history-container">
+                <div class="color-history" id="colorHistory"></div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-content="presets">
+            <div class="color-presets">
+                <div class="preset-colors">
+                    <div class="preset-color" style="background-color: #ff0000" title="Red"></div>
+                    <div class="preset-color" style="background-color: #ff8000" title="Orange"></div>
+                    <div class="preset-color" style="background-color: #ffff00" title="Yellow"></div>
+                    <div class="preset-color" style="background-color: #80ff00" title="Lime"></div>
+                    <div class="preset-color" style="background-color: #00ff00" title="Green"></div>
+                    <div class="preset-color" style="background-color: #00ff80" title="Spring Green"></div>
+                    <div class="preset-color" style="background-color: #00ffff" title="Cyan"></div>
+                    <div class="preset-color" style="background-color: #0080ff" title="Sky Blue"></div>
+                    <div class="preset-color" style="background-color: #0000ff" title="Blue"></div>
+                    <div class="preset-color" style="background-color: #8000ff" title="Purple"></div>
+                    <div class="preset-color" style="background-color: #ff00ff" title="Pink"></div>
+                    <div class="preset-color" style="background-color: #ff0080" title="Magenta"></div>
+                    <div class="preset-color" style="background-color: #ffffff" title="White"></div>
+                    <div class="preset-color" style="background-color: #c0c0c0" title="Silver"></div>
+                    <div class="preset-color" style="background-color: #808080" title="Gray"></div>
+                    <div class="preset-color" style="background-color: #000000" title="Black"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-content="schemes">
+            <div class="color-schemes">
+                <h3>Complementary</h3>
+                <div class="color-scheme" id="complementary"></div>
+                
+                <h3>Analogous</h3>
+                <div class="color-scheme" id="analogous"></div>
+                
+                <h3>Triadic</h3>
+                <div class="color-scheme" id="triadic"></div>
+            </div>
+        </div>
+        
+        <div class="tab-content" data-content="gradient">
+            <div class="gradient-generator">
+                <div class="gradient-preview" id="gradientPreview"></div>
+                <div class="gradient-controls">
+                    <button class="tool-btn" id="copyGradientBtn">Copy CSS</button>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <div class="notification" id="notification">Color copied to clipboard</div>
 
     <script src="script.js"></script>
 </body>
